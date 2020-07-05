@@ -10,8 +10,11 @@ import { Observable } from 'rxjs';
 export class DataService{
     baseUrl = 'https://jsonplaceholder.typicode.com';
     constructor(private http: HttpClient) { }
-    getUses(): Observable<User[]> {
+    getUsers(): Observable<User[]> {
         return this.http.get<User[]>(this.baseUrl + '/users');
+      }
+      addUser(user:User): Observable<any> {
+        return this.http.post(this.baseUrl + '/users',user);
       }
     
 }
