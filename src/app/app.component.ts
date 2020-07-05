@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild,ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table'
@@ -17,7 +17,8 @@ export class AppComponent implements OnInit {
   dataSource : any;
   users:User[];
   constructor(private dataService: DataService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private ref: ChangeDetectorRef) { }
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   ngOnInit() {
@@ -27,7 +28,18 @@ export class AppComponent implements OnInit {
   addUser() :void {
     const dialogRef = this.dialog.open(AddUserComponent
     );
+    const sub = dialogRef.componentInstance.isUserAdded.subscribe((data: any) => {
+      debugger;
+       this.users.splice(0,0,data);
+       this.ref.detectChanges();
+       this.dataSource = this.users;
+       this.dataSource = new MatTableDataSource<any>(this.users);
+  });
+  dialogRef.afterClosed().subscribe(result => {
+   //this.refreshTable();
+    });
   }
+ 
   getUsers():void{
     this.dataService.getUsers()
       .subscribe(serviceResult => {

@@ -2,7 +2,6 @@
     <h3 mat-dialog-title>Add New User</h3>
   
     <form class="mat-dialog-content" [formGroup]="addUserForm"  autocomplete="off">
-  
       <div class="form">
         <mat-form-field color="accent">
           <input matInput class="form-control" placeholder="Name" formControlName="name" >
@@ -13,7 +12,7 @@
       <!--Textarea for demo purposes-->
       <div class="form">
         <mat-form-field color="accent">
-          <input matInput class="form-control" placeholder="UserName" formControlName="userName">
+          <input matInput class="form-control" placeholder="UserName" formControlName="username">
           <!-- <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
         </mat-form-field>
       </div>
@@ -41,7 +40,7 @@
   
       <div class="form">
         <mat-form-field color="accent">
-          <input matInput class="form-control" placeholder="ZipCode" formControlName="zipCode" name="address">
+          <input matInput class="form-control" placeholder="ZipCode" formControlName="zipcode" name="address">
         </mat-form-field>
       </div>
     </div>
