@@ -1,0 +1,53 @@
+<div class="container">
+    <h3 mat-dialog-title>Update User</h3>
+  
+    <form class="mat-dialog-content" [formGroup]="editUserForm"  autocomplete="off">
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput class="form-control" placeholder="Name" formControlName="name" >
+          <!-- <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+      </div>
+  
+      <!--Textarea for demo purposes-->
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput class="form-control" placeholder="UserName" formControlName="username">
+          <!-- <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+      </div>
+  
+      <!--Contains mat-hint for characters count and has maxLengt set-->
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput class="form-control" placeholder="E-mail" formControlName="email">
+          <!-- <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+          <mat-hint align="end">{{inputstate.value?.length || 0}}/10</mat-hint> -->
+        </mat-form-field>
+      </div>
+  
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput class="form-control" placeholder="Phone" formControlName="phone">
+        </mat-form-field>
+      </div>
+   <div formGroupName="address">
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput class="form-control" placeholder="City" formControlName="city" name="address">
+        </mat-form-field>
+      </div>
+  
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput class="form-control" placeholder="ZipCode" formControlName="zipcode" name="address">
+        </mat-form-field>
+      </div>
+    </div>
+      <div mat-dialog-actions>
+        <button mat-button (click)="updateUser()" [disabled]="!editUserForm.valid">Update</button>
+        <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

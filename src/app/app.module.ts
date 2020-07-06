@@ -35,12 +35,17 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import {AddUserComponent} from '../app/users/add-user/add-user.component';
+import {DeleteUserComponent} from '../app/users/delete-user/delete-user.component';
+import {EditUserComponent} from '../app/users/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddUserComponent
+    AddUserComponent,
+    DeleteUserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +84,8 @@ import {AddUserComponent} from '../app/users/add-user/add-user.component';
     MatSlideToggleModule,
     MatSnackBarModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

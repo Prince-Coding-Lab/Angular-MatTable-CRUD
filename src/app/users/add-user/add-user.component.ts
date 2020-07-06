@@ -1,13 +1,8 @@
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Component,OnInit, Inject, Input ,Output, EventEmitter,} from '@angular/core';
+import { Component, OnInit, Inject, Input, Output, EventEmitter, } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { User } from '../../models/user';
 import { DataService } from '../../services/data.service';
-
-export interface DialogData {
-  animal: string;
-  name: string;
-}
 
 @Component({
   selector: 'add-user.component',
@@ -20,12 +15,11 @@ export class AddUserComponent implements OnInit {
   user: User;
   @Output() isUserAdded = new EventEmitter();
   constructor(public dialogRef: MatDialogRef<AddUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
     private dataService: DataService
   ) { }
-
-
+  
   ngOnInit() {
     this.buildForm();
   }
@@ -42,15 +36,11 @@ export class AddUserComponent implements OnInit {
     });
   }
   public addNewUser(): void {
-    
     this.user = Object.assign({}, this.addUserForm.value);
-   // this.user.address = Object.assign({}, this.addUserForm.value);
     this.dataService.addUser(this.user)
       .subscribe(serviceResult => {
-        debugger;
         this.isUserAdded.emit(this.user);
         this.dialogRef.close();
-
       });
   }
   onNoClick(): void {
