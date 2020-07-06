@@ -3,6 +3,7 @@ import { Component, OnInit, Inject, Input, Output, EventEmitter, } from '@angula
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { User } from '../../models/user';
 import { DataService } from '../../services/data.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'add-user.component',
@@ -17,9 +18,10 @@ export class AddUserComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<AddUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
-    private dataService: DataService
+    private dataService: DataService,
+    private _snackBar: MatSnackBar
   ) { }
-  
+
   ngOnInit() {
     this.buildForm();
   }
@@ -41,6 +43,9 @@ export class AddUserComponent implements OnInit {
       .subscribe(serviceResult => {
         this.isUserAdded.emit(this.user);
         this.dialogRef.close();
+        this._snackBar.open('User created succesfully.', 'Created', {
+          duration: 2000,
+        });
       });
   }
   onNoClick(): void {

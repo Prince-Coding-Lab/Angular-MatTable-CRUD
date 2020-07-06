@@ -3,6 +3,7 @@ import { Component, OnInit, Inject, Input, Output, EventEmitter, } from '@angula
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { User } from '../../models/user';
 import { DataService } from '../../services/data.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
     selector: 'edit-user.component',
@@ -17,7 +18,8 @@ export class EditUserComponent implements OnInit {
     constructor(public dialogRef: MatDialogRef<EditUserComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
         private fb: FormBuilder,
-        private dataService: DataService
+        private dataService: DataService,
+        private _snackBar: MatSnackBar
     ) { }
 
     ngOnInit() {
@@ -49,6 +51,9 @@ export class EditUserComponent implements OnInit {
             .subscribe(serviceResult => {
                 this.isUserUpdated.emit(this.user);
                 this.dialogRef.close();
+                this._snackBar.open('User updated succesfully.', 'updated', {
+                    duration: 2000,
+                  });
 
             });
     }
