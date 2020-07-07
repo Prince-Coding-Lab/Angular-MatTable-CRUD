@@ -3,7 +3,7 @@
 This project is basically a CRUD application using angular material controlls. There is mock backend of API using https://jsonplaceholder.typicode.com User entity to create User, edit, update and delete user. 
 
 ## Demo 
-
+![demo](https://github.com/Prince-Coding-Lab/Angular-MatTable-CRUD/blob/master/demoapp.gif)
 
 ## Set up
 Clone the repo https://github.com/Prince-Coding-Lab/Angular-MatTable-CRUD.git 
