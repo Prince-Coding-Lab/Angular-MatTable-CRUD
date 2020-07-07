@@ -1,6 +1,15 @@
 # AngularMatTableCRUD
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+This project is basically a CRUD application using angular material controlls. There is mock backend of API using https://jsonplaceholder.typicode.com User entity to create User, edit, update and delete user. 
+
+## Demo 
+
+
+## Set up
+Clone the repo https://github.com/Prince-Coding-Lab/Angular-MatTable-CRUD.git 
+then npm install command to load the dependencies of project.json 
+Then you can do ng serve to run it locally. 
+
 
 ## Development server
 
@@ -24,4 +33,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+any concern or question drop me an email at princeofficial88@gmail.com
